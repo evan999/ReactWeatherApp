@@ -1,22 +1,16 @@
 const React= require('react');
-
+const WeatherForm= require('WeatherForm');
+const WeatherMessage= require('WeatherMessage');
 
 let Weather= React.createClass({
-  getDefaultProps: function(){
-    return {
-      location: '',
-      message: 'The temperature is '
-    };
-  },
-  getInitialState: function(){
-    return {
-      location: this.props.location,
-      message: this.props.message
-    }
-  }
-
   render: function(){
-
+    return (
+    <div>
+      <h3>Weather Component</h3>
+      <WeatherForm/>
+      <WeatherMessage/>
+    </div>
+    )
   }
 })
 
