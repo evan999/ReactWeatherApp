@@ -1,11 +1,23 @@
 const React= require('react');
 
+
 let Weather= React.createClass({
-  render: function(){
-    return(
-      <h3>Weather Component</h3>
-    )
+  getDefaultProps: function(){
+    return {
+      location: '',
+      message: 'The temperature is '
+    };
+  },
+  getInitialState: function(){
+    return {
+      location: this.props.location,
+      message: this.props.message
+    }
   }
-});
+
+  render: function(){
+
+  }
+})
 
 module.exports = Weather;
