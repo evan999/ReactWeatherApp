@@ -11,9 +11,16 @@ function addPromise(a, b){
   });
 }
 
+//Test cases
 
-addPromise(2, 3).then(function(temp){
-  console.log('success', temp);
+addPromise(2, 3).then(function(sum){
+  console.log('success', sum);
+}, function (err){
+  console.log('error', err);
+});
+
+addPromise(3, 's').then(function(sum){
+  console.log('success', sum);
 }, function (err){
   console.log('error', err);
 });
