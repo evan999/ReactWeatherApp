@@ -1,14 +1,18 @@
 function addPromise(a, b){
   return new Promise(function(resolve, reject){
     setTimeout(function(){
-      resolve(6);
-      reject('One or both of the inputs is not a number');
-
+      if (typeof a === 'number' && typeof b === 'number'){
+        resolve(a + b);
+      }
+      else{
+        reject('Either a or b is not a number');
+      }
     }, 1000);
   });
 }
 
-addPromise(3, 's').then(function(temp){
+
+addPromise(2, 3).then(function(temp){
   console.log('success', temp);
 }, function (err){
   console.log('error', err);
