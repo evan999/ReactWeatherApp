@@ -13,11 +13,15 @@ function addPromise(a, b){
 
 //Test cases
 
+//Success case
+
 addPromise(2, 3).then(function(sum){
   console.log('success', sum);
 }, function (err){
   console.log('error', err);
 });
+
+//Error case
 
 addPromise(3, 's').then(function(sum){
   console.log('success', sum);

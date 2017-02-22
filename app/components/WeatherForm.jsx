@@ -22,13 +22,23 @@ let WeatherForm= React.createClass({
     this.props.onNewData(updates);
   };
   */
+  onFormSubmit: function(e){
+    e.preventDefault(); //prevents page from reloading
+
+    var location= this.refs.location.value;
+
+    if (location.length > 0){
+      this.refs.location.value = '';
+      this.props.onSearch(location);
+    }
+  },
     render: function(){
       return (
         <div>
-          <form>
-            <input type= "text" ref= "name" placeholder= "Enter city"/>
+          <form onSubmit={this.onFormSubmit}>
+            <input type= "text" ref= "location" placeholder= "Enter city"/>
             <button>Get Weather</button>
-        </form>
+          </form>
         </div>
       );
     }
