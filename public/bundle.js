@@ -24947,6 +24947,9 @@
 	    });
 	  },
 	  render: function render() {
+	    var location = this.state.location;
+	    var temp = this.state.temp;
+
 	    return React.createElement(
 	      'div',
 	      null,
@@ -24956,7 +24959,7 @@
 	        'Weather Component'
 	      ),
 	      React.createElement(WeatherForm, { onSearch: this.handleSearch }),
-	      React.createElement(WeatherMessage, { location: location, temp: temp })
+	      React.createElement(WeatherMessage, { temp: temp, location: location })
 	    );
 	  }
 	});
