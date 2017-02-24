@@ -11,17 +11,16 @@ let Weather= React.createClass({
     }
   },
   handleSearch: function(location){
-    openWeatherMap.getTemp(location).then(function(){
+    var that = this;
 
+    openWeatherMap.getTemp(location).then(function(temp){
+      that.setState({
+        location: location,
+        temp: temp
+      });
     }, function (errorMessage){
         alert(errorMessage);
     });
-  /*
-      this.setState({
-      location: location,
-      temp: 23
-    });
-  */
   },
   render: function(){
     var {temp, location} = this.state; //ES6 destructuring
