@@ -1,6 +1,7 @@
 const React= require('react');
 const WeatherForm= require('WeatherForm');
 const WeatherMessage= require('WeatherMessage');
+const openWeatherMap= require('openWeatherMap');
 
 let Weather= React.createClass({
   getInitialState: function(){
@@ -10,10 +11,17 @@ let Weather= React.createClass({
     }
   },
   handleSearch: function(location){
-    this.setState({
+    openWeatherMap.getTemp(location).then(function(){
+
+    }, function (errorMessage){
+        alert(errorMessage);
+    });
+  /*
+      this.setState({
       location: location,
       temp: 23
     });
+  */
   },
   render: function(){
     var {temp, location} = this.state; //ES6 destructuring
