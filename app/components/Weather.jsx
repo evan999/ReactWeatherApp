@@ -16,8 +16,10 @@ let Weather= React.createClass({
     });
   },
   render: function(){
-    var location = this.state.location;
-    var temp = this.state.temp;
+    var {temp, location} = this.state; //ES6 destructuring
+    //Another way to write it, but requires a new statement for every variable.
+    //var temp= this.state.temp;
+    //var location= this.state.location;
 
     return (
     <div>

@@ -24947,8 +24947,12 @@
 	    });
 	  },
 	  render: function render() {
-	    var location = this.state.location;
-	    var temp = this.state.temp;
+	    var _state = this.state,
+	        temp = _state.temp,
+	        location = _state.location; //ES6 destructuring
+	    //Another way to write it, but requires a new statement for every variable.
+	    //var temp= this.state.temp;
+	    //var location= this.state.location;
 
 	    return React.createElement(
 	      'div',
@@ -25037,9 +25041,11 @@
 	  displayName: 'WeatherMessage',
 
 	  render: function render() {
-
-	    var location = this.props.location;
-	    var temp = this.props.temp;
+	    var _props = this.props,
+	        temp = _props.temp,
+	        location = _props.location;
+	    //var location= this.props.location;
+	    //var temp= this.props.temp;
 
 	    return React.createElement(
 	      'div',
