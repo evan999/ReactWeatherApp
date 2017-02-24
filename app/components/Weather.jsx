@@ -10,18 +10,17 @@ let Weather= React.createClass({
     }
   },
   handleSearch: function(location){
-    this.setState{
+    this.setState({
       location: location,
       temp: 23
     });
-    //alert(location);
   },
   render: function(){
     return (
     <div>
       <h3>Weather Component</h3>
       <WeatherForm onSearch= {this.handleSearch}/>
-      <WeatherMessage/>
+      <WeatherMessage location= {location} temp = {temp}/>
     </div>
     )
   }
