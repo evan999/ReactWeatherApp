@@ -24937,29 +24937,49 @@
 
 	  getInitialState: function getInitialState() {
 	    return {
-	      location: 'Miami',
-	      temp: 88
+	      isLoading: false
+	      //  location: 'Miami',
+	      //  temp: 88
 	    };
 	  },
 	  handleSearch: function handleSearch(location) {
 	    var that = this;
 
+	    that.setState({ isLoading: true });
+
 	    openWeatherMap.getTemp(location).then(function (temp) {
-	      that.setState({
-	        location: location,
-	        temp: temp
-	      });
+
+	      if (location) {
+	        that.setState({
+	          location: location,
+	          temp: temp,
+	          isLoading: false
+	        });
+	      }
 	    }, function (errorMessage) {
 	      alert(errorMessage);
 	    });
 	  },
 	  render: function render() {
 	    var _state = this.state,
+	        isLoading = _state.isLoading,
 	        temp = _state.temp,
 	        location = _state.location; //ES6 destructuring
 	    //Another way to write it, but requires a new statement for every variable.
 	    //var temp= this.state.temp;
 	    //var location= this.state.location;
+
+	    function renderMessage() {
+	      if (isLoading) {
+	        return React.createElement(
+	          'h3',
+	          null,
+	          'Fetching weather...'
+	        );
+	      } else if (temp && location) {
+	        return React.createElement(WeatherMessage, { temp: temp, location: location });
+	      }
+	    }
 
 	    return React.createElement(
 	      'div',
@@ -24970,7 +24990,7 @@
 	        'Weather Component'
 	      ),
 	      React.createElement(WeatherForm, { onSearch: this.handleSearch }),
-	      React.createElement(WeatherMessage, { temp: temp, location: location })
+	      renderMessage()
 	    );
 	  }
 	});
@@ -25080,7 +25100,7 @@
 
 	var axios = __webpack_require__(222);
 
-	var OPEN_WEATHER_MAP_URL = 'http://samples.openweathermap.org/data/2.5/weather?&appid=2af7fde6dfca5396429eff49a7257b7e&units=imperial';
+	var OPEN_WEATHER_MAP_URL = 'http://api.openweathermap.org/data/2.5/weather?q=London&APPID=2af7fde6dfca5396429eff49a7257b7e&units=imperial';
 	// 2af7fde6dfca5396429eff49a7257b7e
 
 	module.exports = {
