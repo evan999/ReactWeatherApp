@@ -24949,14 +24949,15 @@
 
 	    openWeatherMap.getTemp(location).then(function (temp) {
 
-	      if (location) {
-	        that.setState({
-	          location: location,
-	          temp: temp,
-	          isLoading: false
-	        });
-	      }
+	      that.setState({
+	        location: location,
+	        temp: temp,
+	        isLoading: false
+	      });
 	    }, function (errorMessage) {
+	      that.setState({
+	        isLoading: false
+	      });
 	      alert(errorMessage);
 	    });
 	  },

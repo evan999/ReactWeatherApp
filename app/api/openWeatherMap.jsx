@@ -1,6 +1,6 @@
 const axios= require('axios');
 
-const OPEN_WEATHER_MAP_URL = 'http://api.openweathermap.org/data/2.5/weather?q=London&APPID=2af7fde6dfca5396429eff49a7257b7e&units=imperial';
+const OPEN_WEATHER_MAP_URL = 'http://api.openweathermap.org/data/2.5/weather?&APPID=2af7fde6dfca5396429eff49a7257b7e&units=imperial';
 // 2af7fde6dfca5396429eff49a7257b7e
 
 module.exports= {
