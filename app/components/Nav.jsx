@@ -1,5 +1,5 @@
-const React = require('react');
-const {Link, IndexLink} = require ('react-router');
+var React = require('react');
+var {Link, IndexLink} = require ('react-router');
 
 /*
 let Nav = React.createClass({

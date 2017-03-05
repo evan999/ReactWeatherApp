@@ -1,5 +1,5 @@
-const React = require('react');
-const Nav= require('Nav');
+var React = require('react');
+var Nav= require('Nav');
 
 
 /*
@@ -16,6 +16,8 @@ let Main = React.createClass({
 });
 */
 
+//ES6 Stateless Functional Components
+//Easier to read and cleaner, more concise code with same results
 let Main = (props) => {
 return (
     <div>
